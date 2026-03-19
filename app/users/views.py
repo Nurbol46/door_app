@@ -24,12 +24,3 @@ class ProfileView(generics.RetrieveUpdateAPIView):
 class CustomTokenObtainPairView(TokenObtainPairView):
     """Получение JWT токенов с дополнительными данными пользователя (роль, имя)."""
     serializer_class = CustomTokenObtainPairSerializer
-
-    @swagger_auto_schema(
-        operation_summary="Авторизация",
-        operation_description="Введите email и пароль для получения JWT токенов",
-        tags=['Авторизация']
-    )
-    def post(self, request, *args, **kwargs):
-        """Переопределение метода POST для получения токенов с дополнительными данными."""
-        return super().post(request, *args, **kwargs)
