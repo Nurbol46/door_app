@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from .models import User, Shop
 
 
@@ -60,3 +61,13 @@ class ProfileSerializer(serializers.ModelSerializer):
     
         instance.save()
         return instance
+    
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        
+        # добавляем доп. данные к ответу
+        data['role'] = self.user.role
+        data['full_name'] = self.user.full_name
+        
+        return data

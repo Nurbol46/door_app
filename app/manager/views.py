@@ -37,6 +37,7 @@ class ManagerOrderDetailView(generics.RetrieveUpdateAPIView):
     permission_classes = [IsManager]
     
     def get_queryset(self):
+        """Все заявки для обновления."""
         return Order.objects.all()
 
     def get_serializer_class(self):
