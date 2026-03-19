@@ -17,5 +17,6 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             cd /home/ubuntu/door_app
-            git pull origin main
+            git fetch origin main
+            git reset --hard origin/main
             docker-compose up -d --build
