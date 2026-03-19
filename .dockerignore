@@ -1,0 +1,12 @@
+cat > .dockerignore << EOF
+*.ctl
+*.sock
+*.pid
+__pycache__
+*.pyc
+.env
+.git
+db.sqlite3
+media
+staticfiles
+EOF
