@@ -99,6 +99,7 @@ class ServiceListView(generics.ListAPIView):
 
 class ServicePDFView(generics.GenericAPIView):
     """Скачивание прайс-листа в формате PDF (публичный доступ)."""
+    serializer_class = ServiceSerializer
     permission_classes = [AllowAny]
     
     def get(self, request):
