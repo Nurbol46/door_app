@@ -98,7 +98,7 @@ DELETE /api/manager/services/{id}/   — Удалить услугу
 
 ### API документация
 ![Swagger UI](docs/swagger1.png)
-![Swagger Models](docs/swagger2.png)
+![Swagger UI](docs/swagger2.png)
 ![Swagger Models](docs/swagger3.png)
 
 ---
