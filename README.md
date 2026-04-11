@@ -213,7 +213,7 @@ Service (Прайс-лист)
 2. Выполняет `git pull`
 3. Перезапускает Docker контейнеры
 
-**Live demo:** `http://door-app.duckdns.org/swagger/`
+**Live demo:** (http://door-app.duckdns.org/swagger/)
 
 ---
 
