@@ -120,6 +120,11 @@ CORS_ALLOWED_ORIGINS = [
     "https://pro-montag.vercel.app",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://door-app.duckdns.org",
+    "http://door-app.duckdns.org",
+]
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'

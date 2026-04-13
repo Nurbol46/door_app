@@ -33,7 +33,6 @@ class RegisterSerializer(serializers.ModelSerializer):
         )
         return user  # всегда возвращаем юзера
 
-
 class ShopSerializer(serializers.ModelSerializer):
 
     class Meta:
