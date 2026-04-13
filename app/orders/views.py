@@ -3,8 +3,6 @@ from rest_framework import generics, exceptions, filters
 from rest_framework.permissions import AllowAny
 from django.http import HttpResponse
 from reportlab.pdfgen import canvas
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
 from .serializers import (OrderCreateSerializer, OrderListSerializer, OrderDetailSerializer, OrderFileSerializer, NotificationSerializer, ServiceSerializer)
 from .models import Order, OrderFile, Service, Notification
 from rest_framework.views import APIView
@@ -109,8 +107,7 @@ class ServicePDFView(generics.GenericAPIView):
 
         p = canvas.Canvas(response)
         
-        pdfmetrics.registerFont(TTFont('FreeSans', '/usr/share/fonts/truetype/freefont/FreeSans.ttf'))
-        p.setFont('FreeSans', 12)
+        p.setFont('Helvetica', 12)
 
         services = Service.objects.all()
         y = 750
