@@ -14,23 +14,24 @@ class RegisterSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'role']
 
     def create(self, validated_data):
-        if validated_data['shop_name']:
-            user = User.objects.create_user(
-                username=validated_data['email'],
-                full_name=validated_data['full_name'],
-                number=validated_data['number'],
-                email=validated_data['email'],
-                role='user',
-                password=validated_data['password']
-            )
-            shop = Shop.objects.create(
-                user=user,
-                name=validated_data['shop_name'],
-                city='',
-                street='',
-                house_number=''
-            )
-            return user
+        shop_name = validated_data.pop('shop_name')  # вытаскиваем и удаляем из данных
+        
+        user = User.objects.create_user(
+            username=validated_data['email'],
+            full_name=validated_data['full_name'],
+            number=validated_data['number'],
+            email=validated_data['email'],
+            role='user',
+            password=validated_data['password']
+        )
+        Shop.objects.create(
+            user=user,
+            name=shop_name,
+            city='',
+            street='',
+            house_number=''
+        )
+        return user  # всегда возвращаем юзера
 
 
 class ShopSerializer(serializers.ModelSerializer):
