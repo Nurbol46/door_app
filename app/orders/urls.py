@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import NotificationReadView, OrderFileView, OrderListCreateView, OrderDetailView, NotificationListView, ServiceListView, ServicePDFView
+from .views import NotificationReadView, OrderFileView, OrderListCreateView, OrderDetailView, NotificationListView, ServiceListView, ServicePDFView, HasNewNotificationView
 
 urlpatterns = [
     path('', OrderListCreateView.as_view(), name='order-list'),
@@ -9,4 +9,5 @@ urlpatterns = [
     path('notification/<int:pk>/read/', NotificationReadView.as_view(), name='notification-read'),
     path('services/', ServiceListView.as_view(), name='service-list'),
     path('services/pdf/', ServicePDFView.as_view(), name='service-pdf'),
+    path('has-new/', HasNewNotificationView.as_view(), name='has-new-notification'),
 ]
